@@ -54,7 +54,7 @@ def test_create(client, auth, app):
     client.post('/create', data={'title': 'created', 'body': ''})
 
     with app.app_context():
-        db.get_db()
+        db = get_db()
         count = db.execute('SELECT COUNT(id) FROM post').fetchone()[0]
         assert count == 2
 
