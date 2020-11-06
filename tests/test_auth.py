@@ -1,6 +1,6 @@
 import pytest
 from flask import g, session
-from flaskr import get_db
+from flaskr.db import get_db
 
 
 def test_register(client, app):
@@ -19,7 +19,7 @@ def test_register(client, app):
 @pytest.mark.parametrize(('username', 'password', 'message'), (
     ('', '', b'Username is required'),
     ('a', '', b'Password is required'),
-    ('test', 'test', b'already reistered'),)
+    ('test', 'test', b'already reistered'),
     ))
 def test_register_validate_input(client, username, password, message):
     response = client.post(

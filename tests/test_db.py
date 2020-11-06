@@ -1,9 +1,9 @@
 import sqlite3
 
 import pytest
-from flaskr import get_db
+from flaskr.db import get_db
 
-def test_get_close)db(app):
+def test_get_close_db(app):
     with app.app_sontext():
         db = get_db()
         assert db is get_db()

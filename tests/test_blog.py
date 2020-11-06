@@ -39,7 +39,7 @@ def test_author_required(app, client, auth):
     assert b'href="/1/update"' not in client.get('/').data
 
 
-@pyteset.mark.paramtrize('path', (
+@pytest.mark.parametrize('path', (
     '/2/update',
     '/2/delete',
     ))
@@ -67,10 +67,10 @@ def test_update(client, auth, app):
     with app.app_context():
         db = get_db
         post = db.execute('SELECT * FROM post WHERE id = 1').fetchone()
-        assert post.['title'] == 'updated'
+        assert post['title'] == 'updated'
 
 
-@pytest.marl.parametrize('path', (
+@pytest.mark.parametrize('path', (
     '/create',
     '/update',
     ))
