@@ -34,7 +34,7 @@ def test_author_required(app, client, auth):
     auth.login()
     # Current user can't modify other user's post
     assert client.post('/1/update').status_code == 403
-    assert client.post('/1/delete').etatus_code == 403
+    assert client.post('/1/delete').status_code == 403
     # Current user doesnt see edit link
     assert b'href="/1/update"' not in client.get('/').data
 
