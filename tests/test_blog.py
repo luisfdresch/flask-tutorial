@@ -50,8 +50,8 @@ def test_exists_required(client, auth, path):
 
 def test_create(client, auth, app):
     auth.login()
-    assert client.get('/1/create').status_code == 200
-    client.post('/1/create', data={'title': 'created', 'body': ''})
+    assert client.get('/create').status_code == 200
+    client.post('/create', data={'title': 'created', 'body': ''})
 
     with app.app_context():
         db.get_db()
