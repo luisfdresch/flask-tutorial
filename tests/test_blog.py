@@ -65,7 +65,7 @@ def test_update(client, auth, app):
     client.post('/1/update', data={'title': 'updated', 'body':''})
 
     with app.app_context():
-        db = get_db
+        db = get_db()
         post = db.execute('SELECT * FROM post WHERE id = 1').fetchone()
         assert post['title'] == 'updated'
 
